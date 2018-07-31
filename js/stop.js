@@ -1,19 +1,9 @@
 $(function() {
   var value = {
-    "start":{
-      "year":null,
-      "date": null,
-      "h":null,
-      "min":null,
-      "sec":null
-    },
-    "stop":{
-      "year": null,
-      "date": null,
-      "h": null,
-      "min": null,
-      "sec": null
-    }
+    "date" : null,
+    "work_title" : "sample",
+    "start": null,
+    "stop" : null
   };
   var start = false;
   var btn_start = $("#botton-start");
@@ -23,14 +13,12 @@ $(function() {
   var h = 0;
   var min = 0;
   var sec = 0;
+
   btn_start.on('click',function(){
     var now   = new Date();
-    value.start.year  = now.getFullYear();
-    value.start.date  = now.getMonth()+"/"+now.getDate();
-    value.start.h     = now.getHours();
-    value.start.min   = now.getMinutes();
-    value.start.sec   = now.getSeconds();
-    var msg = "開始時刻 ： " + value.start.h + "." + value.start.min + "." + value.start.sec+"\n";
+    value.date  = now.getMonth()+"/"+now.getDate();
+    value.start = now.toISOString();
+    var msg = "開始時刻 ： " + now.getHours() + "." + now.getMinutes() + "." + now.getSeconds()+"\n";
     document.getElementById('timer').innerHTML = msg;
     count = setInterval(counter,1000);
     btn_start.prop("disabled",true);
@@ -39,12 +27,8 @@ $(function() {
 
   btn_stop.on('click',function(){
     var now   = new Date();
-    value.stop.year = now.getFullYear();
-    value.stop.date = now.getMonth() + "/" + now.getDate();
-    value.stop.h    = now.getHours();
-    value.stop.min  = now.getMinutes();
-    value.stop.sec  = now.getSeconds();
-    var msg = "終了時刻 ： " + value.stop.h + "." + value.stop.min + "." + value.stop.sec + "\n";
+    value.stop = now.toISOString();
+    var msg = "終了時刻 ： " + now.getHours() + "." + now.getMinutes() + "." + now.getSeconds()+"\n";
     document.getElementById('time_end').innerHTML = msg;
     clearInterval(count);
     btn_stop.prop("disabled",true);
@@ -54,7 +38,7 @@ $(function() {
     alert(JSON.stringify(vv, null, ' '));
     $.ajax({
       type: 'post',
-      url: "http://localhost:8080/",
+      url: "http://localhost:8080/update",
       data: JSON.stringify(vv,null,' '),
       contentType: false,
       processData: false,

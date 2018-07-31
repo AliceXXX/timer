@@ -17,10 +17,11 @@ function existsFile(filename, callback) {
         callback(!err || err.code !== "ENOENT");
     });
 }
+var json_date = [];
 
 existsFile("./json/1.json", function (result) {
     if (result) {
-      var json_date = JSON.parse(fs.readFileSync('./json/1.json', 'utf-8'));
+      json_date = JSON.parse(fs.readFileSync('./json/1.json', 'utf-8'));
     } else {
         console.log("ファイルが存在しない");
     }
@@ -47,14 +48,12 @@ function update(res, postData) {
   console.log("> Request handler 'update' was called.");
   var s = JSON.parse(postData);
   json_date.push(s[0]);
-  /*
   fs.writeFile("./json/1.json", JSON.stringify(json_date,null,' '), function (err) {
       if (err) {
           throw err;
       }
   });
-  */
-  console.log(json_date);
+  console.log(s);
   return res.end();
 }
 

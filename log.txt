@@ -35,51 +35,56 @@ Request for /json/1.json received.
 > About to route a request for /json/1.json
 > Throw request handler found for /json/1.json
 > Request handler 'readstyle' was called.
-Request for /favicon.ico received.
-> req.url : /favicon.ico
-> req.method : GET
-> About to route a request for /favicon.ico
-> Throw request handler found for /favicon.ico
-> Request handler 'readstyle' was called.
->> No request handler found for /favicon.ico
-Request for / received.
-> req.url : /
+Request for /update received.
+> req.url : /update
 > req.method : POST
 > Received POST data chunk '[
  {
-  "start": {
-   "year": 2018,
-   "date": "6/30",
-   "h": 23,
-   "min": 42,
-   "sec": 42
-  },
-  "stop": {
-   "year": 2018,
-   "date": "6/30",
-   "h": 23,
-   "min": 42,
-   "sec": 45
-  }
+  "date": "6/31",
+  "work_title": "sample",
+  "start": "2018-07-31T12:38:17.870Z",
+  "stop": "2018-07-31T12:38:22.790Z"
  }
 ]'.
-> About to route a request for /
+> About to route a request for /update
+> Request handler 'update' was called.
+[ { date: '6/31',
+    work_title: 'sample',
+    start: '2018-07-31T12:38:17.870Z',
+    stop: '2018-07-31T12:38:22.790Z' } ]
+Request for /start received.
+> req.url : /start
+> req.method : GET
+> About to route a request for /start
 > Request handler 'start' was called.
-> start(postData) : [
- {
-  "start": {
-   "year": 2018,
-   "date": "6/30",
-   "h": 23,
-   "min": 42,
-   "sec": 42
-  },
-  "stop": {
-   "year": 2018,
-   "date": "6/30",
-   "h": 23,
-   "min": 42,
-   "sec": 45
-  }
- }
-]
+> start(postData) : 
+Request for /css/main.css received.
+> req.url : /css/main.css
+> req.method : GET
+> About to route a request for /css/main.css
+> Throw request handler found for /css/main.css
+> Request handler 'readstyle' was called.
+Request for /js/stop.js received.
+> req.url : /js/stop.js
+> req.method : GET
+> About to route a request for /js/stop.js
+> Throw request handler found for /js/stop.js
+> Request handler 'readstyle' was called.
+Request for /js/charts.js received.
+> req.url : /js/charts.js
+> req.method : GET
+> About to route a request for /js/charts.js
+> Throw request handler found for /js/charts.js
+> Request handler 'readstyle' was called.
+Request for /js/input.js received.
+> req.url : /js/input.js
+> req.method : GET
+> About to route a request for /js/input.js
+> Throw request handler found for /js/input.js
+> Request handler 'readstyle' was called.
+Request for /json/1.json received.
+> req.url : /json/1.json
+> req.method : GET
+> About to route a request for /json/1.json
+> Throw request handler found for /json/1.json
+> Request handler 'readstyle' was called.
